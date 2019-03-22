@@ -21,6 +21,8 @@ scene.add( spotLight );
 camera.position.z = 10;
 camera.position.x = 10;
 camera.position.y = 10;
+camera.rotation.x=0;
+
 
   // load external geometry
   var loader = new THREE.OBJLoader();
@@ -32,6 +34,11 @@ camera.position.y = 10;
     
   });
   //var controls = new THREE.OrbitControls(camera, renderer.domElement);
+window.scene=scene;
+
+
+
+
 
 function render() { 
     requestAnimationFrame( render ); 
@@ -42,16 +49,26 @@ function render() {
     renderer.render( scene, camera ); 
 } 
 
+
+
+
+
+
+
 render();
 
 function update(renderer, scene, camera, controls) {
     renderer.shadowMap.enabled = true;
     //controls.update();
+    TWEEN.update();
     renderer.render(scene, camera);
     
+
     requestAnimationFrame(function() {
       update(renderer, scene, camera, controls);
+      
     });
+   
   }
 
 
