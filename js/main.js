@@ -1,6 +1,7 @@
 var scene = new THREE.Scene(); 
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 ); 
 //var gui = new dat.GUI();
+var pillobj;
 var renderer = new THREE.WebGLRenderer({ antialias: true }); 
 renderer.setClearColor (0xfafafa, 1);
 renderer.setSize( window.innerWidth, window.innerHeight ); document.getElementById("threed-holder").appendChild( renderer.domElement );
@@ -42,10 +43,12 @@ window.scene=scene;
 
 function render() { 
     requestAnimationFrame( render ); 
-    
-    pillobj.rotation.x += 0.0005; 
+    if(pillobj){
+        pillobj.rotation.x += 0.0005; 
     pillobj.rotation.y += 0.0005;
+    }   
     
+    TWEEN.update();
     renderer.render( scene, camera ); 
 } 
 
@@ -60,11 +63,12 @@ render();
 function update(renderer, scene, camera, controls) {
     renderer.shadowMap.enabled = true;
     //controls.update();
-    TWEEN.update();
+    
     renderer.render(scene, camera);
     
 
     requestAnimationFrame(function() {
+        
       update(renderer, scene, camera, controls);
       
     });

@@ -52,3 +52,20 @@ section {
     bottom:0;
     
 }
+
+#firsttrig{
+    position: absolute;
+    top:500;
+    right:0;
+    left:0;
+    bottom:0;
+    z-index:2;
+    border:2px solid red;
+}
+#secondtrig{
+    position: absolute;
+    top:1000;
+    right:0;
+    left:0;
+    bottom:0;
+}
