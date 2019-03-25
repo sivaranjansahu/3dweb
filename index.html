@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="3dstyle.css" />
     <!-- <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,700,900" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
 
@@ -17,12 +18,27 @@
 
     <main class="full-screen" role="main">
       <section class="full-screen blue">
+        <div class="typewritter">
+            <p class="line-1 anim-typewriter">
+                <span class="keyword"> import</span> genomics <span class="keyword">from</span> future;
+            </p>
+            <p class="line-2">
+                Hit enter
+             </p>
+          
+        </div>
         <div id="threed-holder"></div>
         <!-- <div class="swipe-left-1"></div>
         <div class="swipe-right-1"></div> -->
         <div class="grid">
           <div></div>
-          <div></div>
+          <div>
+            <div class="boxcontent" id="titlebox">
+              <div class="border"></div>
+                <h1>Genomics</h1>
+            </div>
+              
+          </div>
           <div>
             
           </div>
@@ -31,7 +47,7 @@
           <div>
               <div class="stripebg"></div>
               <div class="firstpagecontent">
-                  <h1>Genomics</h1>
+                  <!-- <h1>Genomics</h1> -->
                   <div class="subcontent">
                       <h3 class="quote">
                           By being able to write a genome and plug it into an organism, the software, if you will, changes the hardware. 
@@ -58,7 +74,56 @@
               
               
           </div>
-          <div class="contentbox"></div>
+          <div class="contentbox">
+            <div id="child-content">
+                <div class="parent">
+                    <section class="wrapper" id="gallery">
+                      <div class="box box1"><div>Caption 1</div></div>
+                      <div class="box box2">
+                          <div>Gene Editing</div>
+                          <video autoplay muted loop>
+                                  <source
+                                    type="video/mp4"
+                                    src="vid2.mkv#t=30"
+                                  />
+                                  <source
+                                    type="video/webm"
+                                    src="http://blucube.net/stuff/codepen-assets/html5vid/beepl-pink-vynil.webm"
+                                  />
+                                  <source
+                                    type="video/ogg"
+                                    src="http://blucube.net/stuff/codepen-assets/html5vid/beepl-pink-vynil.ogv"
+                                  />
+                                </video>
+                      
+                      </div>
+                      <div class="box box3"><div>Caption 3</div></div>
+                      <div class="box box4">
+                        <div>Caption 4</div>
+              
+                        
+                      </div>
+                      <div class="box box5">
+                          <div>Research as service</div>
+                          <video autoplay muted loop>
+                                  <source
+                                    type="video/mp4"
+                                    src="smallvid.mp4"
+                                  />
+                                  <source
+                                    type="video/webm"
+                                    src="http://blucube.net/stuff/codepen-assets/html5vid/beepl-pink-vynil.webm"
+                                  />
+                                  <source
+                                    type="video/ogg"
+                                    src="http://blucube.net/stuff/codepen-assets/html5vid/beepl-pink-vynil.ogv"
+                                  />
+                                </video>
+                      </div>
+                    </section>
+                  </div>
+            </div>
+          </div>
           <div></div>
           <div>
            
@@ -114,6 +179,7 @@
     <script src="/js/animations.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/scrollactions.js"></script>
+    <script src="/js/3danim.js"></script>
     
   </body>
 </html>

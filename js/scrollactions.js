@@ -4,6 +4,8 @@ var controller = new ScrollMagic.Controller();
 
 // Scene Handler
 
+
+
 var pin3Dbackground = new ScrollMagic.Scene({
   triggerElement: ".full-screen.blue", // point of execution
   duration: 5*window.innerHeight , // pin element for the window height - 1
@@ -15,8 +17,7 @@ var pin3Dbackground = new ScrollMagic.Scene({
   //.setTween(tlFirstPage)
   .addTo(controller)
   .on("enter",function(){
-     initialLoad.play();
-     tlFirstPage.play();
+     
   })
   .on("progress", function(e) {
     camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -32,6 +33,8 @@ function autoscroll(currentindex,scrollpos){
 
 
 
+
+
 var page1 = new ScrollMagic.Scene({
   triggerElement: ".section.full-screen.blue", // point of execution
   triggerHook: 0, // don't trigger until #pinned-trigger1 hits the top of the viewport
@@ -44,7 +47,7 @@ var page1 = new ScrollMagic.Scene({
   .on("enter", function(e) {
     //tlFirstPage.reverse();
     
-    tlFirstPage.timeScale(2).reverse();
+    //tlFirstPage.timeScale(2).reverse();
     setTimeout(function(){
       tlSecondPage.play();
     },1000)
@@ -74,12 +77,14 @@ var page1 = new ScrollMagic.Scene({
   })
     .addTo(controller)
     .on("enter", function(e) {
-      
+      tlFirstPage.timeScale(2).reverse();
       tlSecondPage.reverse();
+      //tlSecondPage.reverse();
       console.log("start secondtrig");
       e.type=="enter" ? movecamera(...cameraAngles[2]) : movecamera(...cameraAngles[2])
     })
     .on("leave", function(e) {
+      tlFirstPage.play();
       tlSecondPage.play();
       console.log("start firsttrg");
       movecamera(...cameraAngles[1])
@@ -87,7 +92,7 @@ var page1 = new ScrollMagic.Scene({
     .reverse(true)
     
 const cameraAngles = [
-  [8,12,6],[2,6,9],[7, 8, 2],[4,7,2]
+  [8,12,6],[6,16,9],[12, 18, 6],[4,7,2]
 ]
 
 function movecamera(a, b, c) {

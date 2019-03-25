@@ -3,7 +3,8 @@ var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHe
 //var gui = new dat.GUI();
 var pillobj;
 var renderer = new THREE.WebGLRenderer({ antialias: true,alpha: true  }); 
-renderer.setClearColor (0x173659, 0);
+//renderer.setClearColor (0x173659, 0);
+renderer.setClearColor (0xdddddd, 1);
 renderer.setSize( window.innerWidth, window.innerHeight ); document.getElementById("threed-holder").appendChild( renderer.domElement );
 
 var geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
@@ -13,7 +14,7 @@ var initialCameraPos={
   x:3,y:2,z:3
 }
 
-fogColor = new THREE.Color(0x180430);
+fogColor = new THREE.Color(0xdddddd);
  
 //scene.background = fogColor;
 scene.fog = new THREE.Fog(fogColor, 0.0025, 40);
@@ -103,7 +104,8 @@ function processObject(
     var textureLoader = new THREE.TextureLoader();
     //var colorMap = textureLoader.load("/assets/textures/yellow.JPG");
     var bumpMap = textureLoader.load(texture);
-	var faceMaterial = getMaterial("standard","rgb(56,131,216)");
+  //var faceMaterial = getMaterial("standard","rgb(56,131,216)");
+  var faceMaterial = getMaterial("standard","rgb(255,255,255)");
 
     
 // colorMap.wrapS = colorMap.wrapT = THREE.RepeatWrapping;
