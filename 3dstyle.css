@@ -7,8 +7,8 @@ body{
     font-family: 'Share Tech Mono', monospace;
 }
 .wrapper{
-    height: 500;
-    width:800;
+    height: 600px;
+    width:1200px;
     border:1px solid rgba(23, 54, 89,0.6);
     /* box-shadow: 0 0 3px #ff9900; */
     display:grid;
@@ -30,7 +30,7 @@ body{
 .box{
     background-color: #ccc;
     padding: 10px;
-    opacity: 0.9;
+    opacity: 0.95;
     background-size: cover;
     position: relative;
     overflow: hidden;

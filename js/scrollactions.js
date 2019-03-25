@@ -13,54 +13,35 @@ var pin3Dbackground = new ScrollMagic.Scene({
   reverse:true // allows the effect to trigger when scrolled in the reverse direction
 })
   .setPin(".full-screen.blue") // the element we want to pin
-  //.setTween(initialLoad)
-  //.setTween(tlFirstPage)
   .addTo(controller)
   .on("enter",function(){
-     
+     console.log("entered pin3Dbackground")
   })
   .on("progress", function(e) {
     camera.lookAt(new THREE.Vector3(0, 0, 0));
   })
   
-  
-function autoscroll(currentindex,scrollpos){
-  
-  if((scrollpos - window.innerHeight*currentindex )>200){
-    controller.scrollTo("#page"+(currentindex+2))
-  }
-}
 
-
-
-
-
-var page1 = new ScrollMagic.Scene({
+var story1Scene2 = new ScrollMagic.Scene({
   triggerElement: ".section.full-screen.blue", // point of execution
-  triggerHook: 0, // don't trigger until #pinned-trigger1 hits the top of the viewport
+  triggerHook: 0, 
   offset: window.innerHeight,
-  // allows the effect to trigger when scrolled in the reverse direction
 })
   .addTo(controller)
-  
   .reverse(true)
   .on("enter", function(e) {
-    //tlFirstPage.reverse();
-    
-    //tlFirstPage.timeScale(2).reverse();
-    setTimeout(function(){
-      tlSecondPage.play();
-    },1000)
-    
-    console.log("start secondtrig");
+    console.log("entered story1Scene2");
+
     e.type=="enter" ? movecamera(...cameraAngles[1]) : movecamera(...cameraAngles[1])
-    
+    setTimeout(function(){
+      s1t2.play();
+    },1000)
   })
   .on("leave", function(e) {
-    //tlFirstPage.reverse();
-    tlFirstPage.play();
-    tlSecondPage.reverse();
-    console.log("start firsttrg");
+    //s1t1.reverse();
+    s1t1.play();
+    s1t2.reverse();
+    console.log("leaving story1Scene2");
     movecamera(...cameraAngles[0]);
     
 
@@ -69,7 +50,7 @@ var page1 = new ScrollMagic.Scene({
   
   
 
-  var page2 = new ScrollMagic.Scene({
+  var story1Scene3 = new ScrollMagic.Scene({
     triggerElement: ".section.full-screen.blue", // point of execution
     triggerHook: 0, // don't trigger until #pinned-trigger1 hits the top of the viewport
     offset: 2*window.innerHeight,
@@ -77,20 +58,49 @@ var page1 = new ScrollMagic.Scene({
   })
     .addTo(controller)
     .on("enter", function(e) {
-      tlFirstPage.timeScale(2).reverse();
-      tlSecondPage.reverse();
-      //tlSecondPage.reverse();
-      console.log("start secondtrig");
+      console.log("entered story1Scene3");
+      s1t1.timeScale(2).reverse();
+      s1t2.timeScale(2).reverse();
+      setTimeout(function(){
+        s2t1.play();
+      },1000)
+      // s1t1.timeScale(2).reverse();
+      // s1t2.timeScale(2).reverse();
+      
+      //s1t2.reverse();
       e.type=="enter" ? movecamera(...cameraAngles[2]) : movecamera(...cameraAngles[2])
     })
     .on("leave", function(e) {
-      tlFirstPage.play();
-      tlSecondPage.play();
-      console.log("start firsttrg");
+      // s1t1.play();
+      s2t1.reverse();
+      s1t1.play();
+      s1t2.play();
+      console.log("leaving story1Scene3");
       movecamera(...cameraAngles[1])
     })
     .reverse(true)
     
+
+
+    var story2Scene1 = new ScrollMagic.Scene({
+      triggerElement: ".section.full-screen.blue", // point of execution
+      triggerHook: 0, // don't trigger until #pinned-trigger1 hits the top of the viewport
+      offset: 3*window.innerHeight,
+      // allows the effect to trigger when scrolled in the reverse direction
+    })
+      .addTo(controller)
+      .on("enter", function(e) {
+        s2t1.play();
+        s1t2.reverse();
+        console.log("start secondtrig");
+        e.type=="enter" ? movecamera(...cameraAngles[2]) : movecamera(...cameraAngles[2])
+      })
+      .on("leave", function(e) {
+        // s2t1.play();
+        console.log("start firsttrg");
+        movecamera(...cameraAngles[2])
+      })
+      .reverse(true)
 const cameraAngles = [
   [8,12,6],[6,16,9],[12, 18, 6],[4,7,2]
 ]
@@ -108,8 +118,7 @@ function movecamera(a, b, c) {
     z: c
   };
 
-  console.log(from);
-  console.log(to);
+  
   var tween = new TWEEN.Tween(from)
     .to(to, 600)
     .easing(TWEEN.Easing.Linear.None)

@@ -7,7 +7,7 @@ var ticking = false,
   decimalY = 0;
 
 //Get the parent element, attach mousemove listener
-document.getElementById("gallery").addEventListener('mousemove', cursorPositionHandler);
+document.body.addEventListener('mousemove', cursorPositionHandler);
 
 //Declare mousemove handler
 function cursorPositionHandler(ev) {
@@ -30,7 +30,7 @@ function requestTick() {
 
 function update(){
   //Animate rotations
-  TweenLite.to(".wrapper", 0.2, {rotationY:-5*decimalX, rotationX:5*decimalY, ease:Power2.easeOut, transformPerspective:500, transformOrigin:"center"});
+  TweenLite.to(".wrapper", 0.2, {rotationY:-2*decimalX, rotationX:2*decimalY, ease:Power2.easeOut, transformPerspective:500, transformOrigin:"center"});
   //Set status
   ticking = false;
 }
