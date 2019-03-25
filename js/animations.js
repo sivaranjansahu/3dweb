@@ -86,7 +86,7 @@
       $(document).on('keypress',function(e) {
         if(e.which == 13) {
             //alert('You pressed enter!');
-            TweenMax.to(".typewritter",0.3,{left:-1000,opacity:0});
+            TweenMax.to(".typewritter",0.3,{ease:Expo.easeIn,opacity:0});
             initialLoad.play();
             s1t1.play();
         }

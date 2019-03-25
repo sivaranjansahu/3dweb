@@ -101,8 +101,32 @@ var story1Scene2 = new ScrollMagic.Scene({
         movecamera(...cameraAngles[2])
       })
       .reverse(true)
+
+      var story2Scene2 = new ScrollMagic.Scene({
+        triggerElement: ".section.full-screen.blue", // point of execution
+        triggerHook: 0, // don't trigger until #pinned-trigger1 hits the top of the viewport
+        offset: 3*window.innerHeight,
+        // allows the effect to trigger when scrolled in the reverse direction
+      })
+        .addTo(controller)
+        .on("enter", function(e) {
+          s2t1.play();
+          s1t2.reverse();
+          console.log("start secondtrig");
+          e.type=="enter" ? movecamera(...cameraAngles[2]) : movecamera(...cameraAngles[2])
+        })
+        .on("leave", function(e) {
+          // s2t1.play();
+          console.log("start firsttrg");
+          movecamera(...cameraAngles[2])
+        })
+        .reverse(true)
+
+
+
+
 const cameraAngles = [
-  [8,12,6],[6,16,9],[12, 18, 6],[4,7,2]
+  [8,12,6],[6,16,9],[-8,7,8],[-8,7,8]
 ]
 
 function movecamera(a, b, c) {
