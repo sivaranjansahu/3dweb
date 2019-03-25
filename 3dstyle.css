@@ -7,8 +7,8 @@ body{
     font-family: 'Share Tech Mono', monospace;
 }
 .wrapper{
-    height: 600px;
-    width:1200px;
+    height: 70vh;
+    width:70vw;
     border:1px solid rgba(23, 54, 89,0.6);
     /* box-shadow: 0 0 3px #ff9900; */
     display:grid;
@@ -52,7 +52,7 @@ body{
     background-color: rgba(48, 48, 48, 0.74)
 }
 .box>div:hover{
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(48, 48, 48, 0.9);
     transition:all 1s;
     opacity: 0;
 }
