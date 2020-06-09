@@ -1,5 +1,6 @@
 var scene = new THREE.Scene(); 
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 ); 
+camera.zoom=3;
 //var gui = new dat.GUI();
 var pillobj;
 var renderer = new THREE.WebGLRenderer({ antialias: true,alpha: true  }); 
@@ -11,7 +12,7 @@ var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 var material = new THREE.MeshPhongMaterial( { color: 0x000000 } ); 
 
 var initialCameraPos={
-  x:3,y:2,z:3
+  x:1,y:1,z:1
 }
 
 fogColor = new THREE.Color(0xdddddd);
@@ -32,9 +33,9 @@ spotLight.shadowCameraFar = 4000;
 spotLight.shadowCameraFov = 30; 
 
 scene.add( spotLight ); 
-camera.position.z = 4;
-camera.position.x = 16;
-camera.position.y = 8;
+camera.position.z = 1;
+camera.position.x = -2;
+camera.position.y = 2;
 camera.rotation.x=0;
 
 
@@ -43,9 +44,9 @@ camera.rotation.x=0;
   //var mtlLoader = new THREE.MTLLoader();
   //mtlLoader.load("obj/DNA.mtl")
 
-  loader.load("dna.obj", function(object) {
+  loader.load("virus.obj", function(object) {
     pillobj = processObject(object, "Bump.jpg", 0, 0, 0, 0);
-    pillobj.position.y = 0;
+    pillobj.position.y = -5;
     scene.add(pillobj);
     
   });
@@ -124,7 +125,6 @@ function processObject(
         child.material = faceMaterial;
         faceMaterial.roughness = 0.82;
         faceMaterial.shininess = 0;
-        // faceMaterial.map = colorMap;
         // faceMaterial.envMap = bumpMap ;
         faceMaterial.needsUpdate=true;
         child.castShadow = true;
@@ -132,7 +132,7 @@ function processObject(
         // faceMaterial.roughnessMap = bumpMap;
         faceMaterial.metalness = 0.1;
         
-        faceMaterial.bumpScale = 1;
+        faceMaterial.bumpScale = 0;
       }
       if (child.name == "NurbsPath" || child.name == "Cylinder.001" ) {
         child.visible = false;
@@ -141,9 +141,9 @@ function processObject(
       }
     });
 
-    object.scale.x = 20;
-    object.scale.y = 20;
-    object.scale.z = 20;
+    object.scale.x = 60;
+    object.scale.y = 60;
+    object.scale.z = 60;
   object.rotation.z = rotation;
   object.rotation.y=-2;
 	object.position.x = positionx;

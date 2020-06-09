@@ -28,7 +28,7 @@ body{
 }
 
 .box{
-    background-color: #ccc;
+    background-color: rgb(153, 59, 59);
     padding: 10px;
     opacity: 0.95;
     background-size: cover;
